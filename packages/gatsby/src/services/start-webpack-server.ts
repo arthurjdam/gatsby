@@ -21,7 +21,7 @@ import {
   markWebpackStatusAsDone,
 } from "../utils/webpack-status"
 import { enqueueFlush } from "../utils/page-data"
-import { mapTemplatesToStaticQueryHashes } from "../utils/map-pages-to-static-query-hashes"
+import mapTemplatesToStaticQueryHashes from "../utils/map-templates-to-static-query-hashes"
 
 export async function startWebpackServer({
   program,
@@ -125,7 +125,7 @@ export async function startWebpackServer({
             if (
               !isEqual(
                 state.staticQueriesByTemplate.get(componentPath),
-                staticQueryHashes.map(String)
+                staticQueryHashes
               )
             ) {
               store.dispatch({
